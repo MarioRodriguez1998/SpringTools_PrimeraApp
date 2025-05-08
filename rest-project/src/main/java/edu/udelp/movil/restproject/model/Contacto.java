@@ -1,8 +1,10 @@
 package edu.udelp.movil.restproject.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,21 +28,23 @@ public class Contacto {
     @NotNull(message = "Campo Obligatorio")
     @NotEmpty(message = "Campo Obligatorio")
     private String nombre;
-    
-    
-    private LocalDate fechaNacimiento;
-    
+
+    private String apellidos;
+
     @Email(message = "Introdusca un correo valido")
     @NotNull(message = "El correo no puede estar vacío")
     private String correo;
-    
+
     @Pattern(regexp = "^[0-9]{10}$", message = "El teléfono solo puede contener números y debe tener exactamente 10 dígitos")
-    @Column(length = 10)  
-    private String telefono;
-    
-   
-    private String fotoRuta;
+    @Column(length = 10)
+    private String telefonoPrincipal;
 
     private String direccion;
+
+    @ElementCollection
+    private List<String> telefonosAdicionales;
+
+    @ElementCollection
+    private List<String> correosAdicionales;
 }
 

@@ -8,5 +8,4 @@ import edu.udelp.movil.restproject.model.Contacto;
 @Repository
 
 public interface ContactoRepository extends JpaRepository<Contacto, Long>{
-
 }

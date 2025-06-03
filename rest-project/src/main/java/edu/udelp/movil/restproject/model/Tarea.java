@@ -35,6 +35,9 @@ public class Tarea {
 
     @Temporal(TemporalType.DATE)
     private Date fechaVencimiento;
+    
+    //Agregado recientemente
+    private String categoria;
 
     @ElementCollection
     private List<String> etiquetas;

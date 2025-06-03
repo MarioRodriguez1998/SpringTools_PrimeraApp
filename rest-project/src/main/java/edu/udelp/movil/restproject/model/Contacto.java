@@ -1,8 +1,6 @@
 package edu.udelp.movil.restproject.model;
 
-import java.time.LocalDate;
 import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;

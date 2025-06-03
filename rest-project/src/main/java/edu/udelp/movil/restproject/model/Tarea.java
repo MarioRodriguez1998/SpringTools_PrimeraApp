@@ -5,11 +5,13 @@ import jakarta.validation.constraints.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "tarea")
 @Data
 public class Tarea {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,8 +26,17 @@ public class Tarea {
 
     private String descripcion;
 
-    @Max(value = 5, message = "La prioridad maxima es de 5")
-    @Min(value = 1, message = "La prioridad minima es de 1")
+    @Max(value = 5, message = "La prioridad máxima es 5")
+    @Min(value = 1, message = "La prioridad mínima es 1")
     private Integer prioridad;
 
+    @Column(length = 20)
+    private String estado;
+
+    @Temporal(TemporalType.DATE)
+    private Date fechaVencimiento;
+
+    @ElementCollection
+    private List<String> etiquetas;
 }
+

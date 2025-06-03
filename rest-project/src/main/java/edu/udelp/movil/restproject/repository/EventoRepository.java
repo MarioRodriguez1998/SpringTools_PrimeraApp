@@ -1,0 +1,9 @@
+package edu.udelp.movil.restproject.repository;
+
+import edu.udelp.movil.restproject.model.Evento;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface EventoRepository extends JpaRepository<Evento, Long> {
+}

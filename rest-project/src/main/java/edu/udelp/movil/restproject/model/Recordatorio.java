@@ -27,8 +27,9 @@ public class Recordatorio {
     
     private String mensaje;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "recordatorio_correos", joinColumns = @JoinColumn(name = "recordatorio_id"))
     @Column(name = "correo", nullable = false)
     private List<String> correos;
+
 }

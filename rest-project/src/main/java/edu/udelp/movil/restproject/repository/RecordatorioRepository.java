@@ -13,4 +13,7 @@ public interface RecordatorioRepository extends JpaRepository<Recordatorio, Long
 	
 	Recordatorio findByTipoAndIdTipo(String tipo, Long idTipo);
 	List<Recordatorio> findByFechaHoraBefore(Date date);
+	List<Recordatorio> findByIdUsuarioRelacion(Long idUsuarioRelacion);
+
+
 }

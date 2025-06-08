@@ -22,6 +22,10 @@ public class Contacto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @NotNull(message = "Campo Obligatorio")
+    private Long idUsuarioRelacion;
+
 
     @NotNull(message = "Campo Obligatorio")
     @NotEmpty(message = "Campo Obligatorio")

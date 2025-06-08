@@ -9,4 +9,5 @@ public interface EventoService {
     List<Evento> findAll();
     Evento findById(Long id);
     void remove(Long id);
+    List<Evento> findByUsuarioId(Long userId);
 }

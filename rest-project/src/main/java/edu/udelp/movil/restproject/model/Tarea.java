@@ -15,6 +15,9 @@ public class Tarea {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @NotNull(message = "Campo Obligatorio")
+    private Long idUsuarioRelacion;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaCreacion;

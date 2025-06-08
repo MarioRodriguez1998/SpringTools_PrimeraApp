@@ -17,7 +17,7 @@ public class RecordatorioServiceImpl implements RecordatorioService {
     public Recordatorio save(Recordatorio recordatorio) {
         return repository.save(recordatorio);
     }
-    
+
     @Override
     public Recordatorio findByTipoAndIdTipo(String tipo, Long idTipo) {
         return repository.findByTipoAndIdTipo(tipo, idTipo);
@@ -37,4 +37,10 @@ public class RecordatorioServiceImpl implements RecordatorioService {
     public void remove(Long id) {
         repository.deleteById(id);
     }
+
+    @Override
+    public List<Recordatorio> findByUsuarioId(Long userId) {
+        return repository.findByIdUsuarioRelacion(userId);
+    }
 }
+

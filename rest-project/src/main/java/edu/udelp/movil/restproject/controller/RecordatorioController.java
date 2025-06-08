@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/recordatorio")
+@CrossOrigin(origins = "*") // Agrega esto si accedes desde frontend separado
 public class RecordatorioController {
 
     @Autowired
@@ -19,7 +20,7 @@ public class RecordatorioController {
     public List<Recordatorio> getAll() {
         return service.findAll();
     }
-    
+
     @GetMapping("/getByTipo/{tipo}/{idTipo}")
     public ResponseEntity<Recordatorio> getByTipo(@PathVariable String tipo, @PathVariable Long idTipo) {
         Recordatorio r = service.findByTipoAndIdTipo(tipo, idTipo);
@@ -29,7 +30,6 @@ public class RecordatorioController {
             return ResponseEntity.notFound().build();
         }
     }
-
 
     @PostMapping("/add")
     public Recordatorio add(@RequestBody Recordatorio recordatorio) {
@@ -51,6 +51,21 @@ public class RecordatorioController {
     public void remove(@PathVariable Long id) {
         service.remove(id);
     }
+
+    //Obtener recordatorios por ID de usuario
+    @PostMapping("/usuario")
+    public ResponseEntity<List<Recordatorio>> getByUsuario(@RequestBody Long usuarioId) {
+        List<Recordatorio> recordatorios = service.findByUsuarioId(usuarioId);
+        return ResponseEntity.ok(recordatorios);
+    }
+
+    //Actualizar recordatorio (equivalente a "update" completo)
+    @PostMapping("/actualizar")
+    public ResponseEntity<Recordatorio> actualizar(@RequestBody Recordatorio recordatorio) {
+        Recordatorio actualizado = service.save(recordatorio);
+        return ResponseEntity.ok(actualizado);
+    }
 }
+
 
 

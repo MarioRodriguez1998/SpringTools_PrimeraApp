@@ -10,5 +10,6 @@ public interface RecordatorioService {
     Recordatorio findById(Long id);
     void remove(Long id);
     public Recordatorio findByTipoAndIdTipo(String tipo, Long idTipo);
+    List<Recordatorio> findByUsuarioId(Long userId);
 
 }

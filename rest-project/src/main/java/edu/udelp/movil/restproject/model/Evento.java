@@ -1,6 +1,7 @@
 package edu.udelp.movil.restproject.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.Date;
@@ -14,6 +15,9 @@ public class Evento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @NotNull(message = "Campo Obligatorio")
+    private Long idUsuarioRelacion;
 
     private String titulo;
 

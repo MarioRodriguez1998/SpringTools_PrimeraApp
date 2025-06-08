@@ -4,7 +4,6 @@ import edu.udelp.movil.restproject.model.Evento;
 import edu.udelp.movil.restproject.repository.EventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -31,5 +30,11 @@ public class EventoServiceImpl implements EventoService {
     @Override
     public void remove(Long id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public List<Evento> findByUsuarioId(Long userId) {
+        // ✅ Aquí debes llamar al método correcto del repositorio:
+        return repository.findByIdUsuarioRelacion(userId);
     }
 }
